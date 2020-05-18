@@ -14,12 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: get sources
-      run: git clone https://github.com/rockchip-linux/rkdeveloptool.git && cd rkdeveloptool
+      run: git clone https://github.com/rockchip-linux/rkdeveloptool.git && 
     - name: configure
-      run: ./configure
+      run: cd rkdeveloptool && autoreconf -i && ./confgire
     - name: make
       run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
+    - name: Create a Release
+      uses: actions/create-release@v1
