@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: get sources
+      run: git clone https://github.com/rockchip-linux/rkdeveloptool.git && cd rkdeveloptool
     - name: configure
       run: ./configure
     - name: make
