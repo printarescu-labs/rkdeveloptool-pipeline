@@ -13,8 +13,7 @@ jobs:
 
     steps:
     - name: install packages
-      run: sudo apt -y -qq update && sudo apt install -y -qq libudev-dev libusb-1.0-0-dev dh-autoreconf
-    - uses: actions/checkout@v2
+      run: sudo apt -qq update && sudo apt -y -qq install libudev-dev libusb-1.0-0-dev dh-autoreconf
     - name: get sources
       run: git clone https://github.com/rockchip-linux/rkdeveloptool.git
     - name: configure
@@ -25,6 +24,6 @@ jobs:
       uses: actions/cache@v1.2.0
       with:
       # A directory to store and save the cache
-        path: rkdeveloptool 
+        path: ~/rkdeveloptool 
         # An explicit key for restoring and saving the cache
-        key: binary
+        key: ${{ runner.os }}-rkdevelop-bin
