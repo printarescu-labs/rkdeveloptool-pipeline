@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: install packages
-      run: sudo apt -qq update && sudo apt -y -qq install libudev-dev libusb-1.0-0-dev dh-autoreconf
+      run: sudo apt -qq update && sudo apt -y -qq install libudev-dev libusb-1.0-0-dev dh-autoreconf --no-install-recommends
     - name: get sources
       run: git clone https://github.com/rockchip-linux/rkdeveloptool.git
     - name: configure
