@@ -16,7 +16,7 @@ jobs:
     - name: get sources
       run: git clone https://github.com/rockchip-linux/rkdeveloptool.git
     - name: configure
-      run: cd rkdeveloptool && autoreconf -i && ./confgure
+      run: cd rkdeveloptool && autoreconf -i && ./configure
     - name: make
       run: cd rkdeveloptool && make
     - name: Cache
