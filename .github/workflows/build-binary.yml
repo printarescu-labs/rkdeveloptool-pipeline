@@ -16,8 +16,13 @@ jobs:
     - name: get sources
       run: git clone https://github.com/rockchip-linux/rkdeveloptool.git
     - name: configure
-      run: cd rkdeveloptool && autoreconf -i && ./confgire
+      run: cd rkdeveloptool && autoreconf -i && ./confgure
     - name: make
-      run: make
-    - name: Create a Release
-      uses: actions/create-release@v1
+      run: cd rkdeveloptool && make
+    - name: Cache
+      uses: actions/cache@v1.2.0
+      with:
+      # A directory to store and save the cache
+        path: rkdeveloptool 
+        # An explicit key for restoring and saving the cache
+        key: binary
